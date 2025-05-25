@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pankaj's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      /* Dark background for a modern look */
+      color: white;
+      line-height: 1.6;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Header Section */
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      /* Vibrant gradient */
+      color: white;
+      display: flex;
+      /* Use flexbox for alignment */
+      flex-direction: column;
+      /* Stack items vertically on small screens */
+      align-items: center;
+      /* Center items horizontally */
+      justify-content: center;
+      /* Center items vertically */
+      gap: 1.5rem;
+      /* Space between items */
+      position: relative;
+      /* For potential absolute positioning of elements */
+      overflow: hidden;
+      /* Hide overflow from background effects */
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1s ease;
+      /* Animation for header title */
+    }
+
+    header p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      opacity: 0.85;
+    }
+
+    /* Profile Picture Styling */
+    .profile-picture {
+      width: 150px;
+      /* Fixed width for the picture */
+      height: 150px;
+      /* Fixed height for the picture */
+      border-radius: 50%;
+      /* Make it circular */
+      border: 5px solid rgba(255, 255, 255, 0.8);
+      /* White border */
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.7);
+      /* Glowing shadow */
+      object-fit: cover;
+      /* Ensure image covers the area */
+      animation: zoomIn 1s ease forwards;
+      /* Animation for the picture */
+      margin-bottom: 1rem;
+      /* Space below the picture */
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #ff512f, #dd2476);
+      /* Gradient text */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease;
+      /* Animation for section titles */
+    }
+
+    /* Card Styling */
+    .card {
+      background-color: #1e1e1e;
+      /* Darker background for cards */
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      /* Subtle shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Smooth transition on hover */
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      /* Lift card on hover */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+      /* Enhanced shadow on hover */
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #00ffe7;
+      /* Bright cyan for headings */
+      font-weight: 600;
+    }
+
+    .card p {
+      color: #cfcfcf;
+      /* Lighter text for content */
+    }
+
+    /* Certifications Grid */
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      /* Responsive grid */
+      gap: 1.5rem;
+    }
+
+    /* Roadmap List Styling */
+    .roadmap-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .roadmap-list li {
+      margin-bottom: 0.75rem;
+      color: #cfcfcf;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .roadmap-list li::before {
+      content: '🚀';
+      /* Rocket emoji for list items */
+      margin-right: 0.75rem;
+      font-size: 1.2em;
+      line-height: 1;
+    }
+
+    /* Roadmap Card Animations */
+    #roadmap-learn .card {
+      opacity: 0;
+      /* Start hidden */
+      animation: fadeInUp 0.8s ease forwards;
+      /* Apply fade in animation */
+    }
+
+    #roadmap-learn .card:nth-child(1) {
+      animation-delay: 0.2s;
+      /* Stagger animation */
+    }
+
+    #roadmap-learn .card:nth-child(2) {
+      animation-delay: 0.4s;
+      /* Stagger animation */
+    }
+
+    #roadmap-learn .card:nth-child(3) {
+      animation-delay: 0.6s;
+      /* Stagger animation */
+    }
+
+    /* System Design Image Styling */
+    .system-design-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      /* Even darker footer */
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive adjustments for header */
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        /* Arrange items horizontally on larger screens */
+        justify-content: space-between;
+        /* Space out items */
+        padding: 3rem;
+      }
+
+      .profile-picture {
+        margin-bottom: 0;
+        /* Remove bottom margin on larger screens */
+      }
+
+      header h1 {
+        font-size: 4rem;
+        /* Larger title on desktop */
+      }
+
+      header p {
+        font-size: 1.5rem;
+        /* Larger subtitle on desktop */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://placehold.co/150x150/000000/FFFFFF?text=Pankaj" alt="Pankaj Kumar Profile Picture"
+      class="profile-picture">
+    <div>
+      <h1>Pankaj's Portfolio</h1>
+      <p>Engineering Student | Cpp | AI Enthusiast</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+    <div class="card">
+      <h3>SSC - State Board of Secondary Education</h3>
+      <p><strong>Duration:</strong> March 2020 – April 2022</p>
+      <p><strong>Score:</strong> 72.83%</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certifications-grid">
+      <div class="card">
+        <h3>PCAP Certification by OpenEDG</h3>
+        <p>Mastered Cpp programming with expertise in scripting, OOP, and real-world problem-solving.</p>
+      </div>
+      <div class="card">
+        <h3>Generative AI & ChatGPT Certification</h3>
+        <p>Hands-on experience in AI-powered content generation and ChatGPT integration for innovative solutions.</p>
+      </div>
+      <div class="card">
+        <h3>Cybersecurity Certification</h3>
+        <p>Proven skills in network defense, threat mitigation, and cybersecurity best practices by Cisco Networking Academy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="roadmap-learn">
+    <h2 class="section-title">Future Learning Roadmap</h2>
+    <div class="card">
+      <h3>Phase 1: Foundations & Core Concepts</h3>
+      <ul class="roadmap-list">
+        <li>Deep dive into Data Structures and Algorithms (DSA) with C++</li>
+        <li>Master Object-Oriented Programming (OOP) principles</li>
+        <li>Understand Operating Systems (OS) concepts and principles</li>
+        <li>Explore Computer Networks (CN) fundamentals</li>
+        <li>Version Control with Git & GitHub</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Phase 2: Web Development & Databases</h3>
+      <ul class="roadmap-list">
+        <li>Advanced HTML5 & CSS3 (Flexbox, Grid, Responsive Design)</li>
+        <li>JavaScript Frameworks (React.js or Vue.js)</li>
+        <li>Backend Development (Node.js with Express, or Python with Django/Flask)</li>
+        <li>Database Management (SQL - PostgreSQL/MySQL, NoSQL - MongoDB)</li>
+        <li>API Design and Integration (RESTful APIs)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Phase 3: Advanced Topics & Specialization</h3>
+      <ul class="roadmap-list">
+        <li>Cloud Platforms (AWS, Azure, or Google Cloud) fundamentals</li>
+        <li>DevOps basics (CI/CD, Docker)</li>
+        <li>Machine Learning/Artificial Intelligence (Python, TensorFlow/PyTorch)</li>
+        <li>Competitive Programming practice</li>
+        <li>Contribution to Open Source projects</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="system-design">
+    <h2 class="section-title">System Design</h2>
+    <div class="card">
+      <p>
+        System design is crucial for building scalable, reliable, and maintainable software applications.
+        It involves understanding requirements, making architectural decisions, and designing components
+        that work together efficiently. As a CSE student, developing a strong grasp of system design
+        principles is essential for tackling complex engineering challenges and contributing to robust solutions.
+      </p>
+      <img src="https://placehold.co/600x300/1e1e1e/00ffe7?text=System+Design+Concept" alt="System Design Concept"
+        class="system-design-image">
+      <p class="text-sm text-gray-500 mt-2">
+        (Image: Conceptual representation of system architecture)
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Made with ❤️ by Pankaj | Radhe Radhe 😊🙏
+  </footer>
+
+  <script>
+    // Future JS functionality placeholder
+    console.log("Portfolio loaded successfully!");
+  </script>
+</body>
+
+</html>
